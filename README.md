@@ -1,20 +1,25 @@
 # Instrucciones para ejecutar este proyecto
 
 
-Clonar el proyecto y cambiar de rama
-git clone https://github.com/coder-live-class/django-coderhouse-project.git
+Clonar el proyecto
 
-cd django-coderhouse-project
+git clone https://github.com/waltervd9512/entrega.git
 
-git checkout class_21
-Crear y activar entorno virtual (Windows)
-C:\>python -m venv c:\ruta\al\entorno\virtual
-C:\>c:\ruta\al\entorno\virtual\scripts\activate.bat
-Crear y activar entorno virtual (Linux)
-python3 -m venv venv
-source venv/bin/activate
-Instalar Django
-pip install Django
+cd .\entrega\
+cd .\BibliotecaWeb\   
+
+Crear base de datos con los Modelos (hacer migraciones y migrar)
+
+py .\manage.py makemigrations
+
+
+py .\manage.py sqlmigrate app_biblioteca 0001   
+
+
+py .\manage.py migrate  
+
+
+
 Crear base de datos con los Modelos (hacer migraciones y migrar)
 python manage.py makemigrations app_coder
 
