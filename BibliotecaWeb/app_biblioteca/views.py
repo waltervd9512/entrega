@@ -76,16 +76,51 @@ def profesor(request):
 
 def busqueda(request):
     context_dict = dict()
+    try:
+        if request.GET['name_search']:
+            search_param = request.GET['name_search']
+            libros = Libro.objects.filter(titulo__contains=search_param)
 
-    if request.GET['name_search']:
-        search_param = request.GET['name_search']
-        libros = Libro.objects.filter(autor__contains=search_param)
-        context_dict = {
-            'libros': libros
-        }
+            context_dict = {
+                'libros': libros
+            }
+        elif request.GET['autor_search']:
+            search_param = request.GET['autor_search']
+            libros = Libro.objects.filter(autor__contains=search_param)
+            context_dict = {
+                'libros': libros
+            }
+        elif request.GET['all_search']:
+            search_param = request.GET['all_search']
+            query = Q(titulo__contains=search_param)
+            query.add(Q(autor__contains=search_param), Q.OR)
+            libros = Libro.objects.filter(query)
+            context_dict = {
+                'libros': libros
+            }
+
+
+
+
+        return render(
+            request=request,
+            context=context_dict,
+            template_name="app_biblioteca/busqueda.html",
+        )
+
+
+
+
+    except:
+        pass
+
+
+
+
+
 
     return render(
-        request=request,
-        #context=context_dict,
-        template_name="app_biblioteca/busqueda.html",
-    )
+            request=request,
+            context=context_dict,
+            template_name="app_biblioteca/busqueda.html",
+        )
