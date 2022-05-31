@@ -1,0 +1,42 @@
+{% extends "app_biblioteca/index.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+   <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                    <div class="col-lg-8 align-self-end">
+                        <h1 class="text-white font-weight-bold">Busqueda de Libros</h1>
+
+
+        <form action="" method="GET">
+            <div>
+                <input type="text" name="name_search" id="hola " placeholder="Busqueda por nommbre">
+                <input type="submit" value="Buscar por Nombre">
+            </div>
+            <br>
+             <!-- <div>
+                <input type="text" name="autor_search" id="hola1 "  placeholder="Busqueda por Autor">
+                <input type="submit" value="Buscar por Autor">
+            </div>
+            <br>
+            <div>
+                <input type="text" name="all_search" id="hola " placeholder="Busqueda general">
+                <input type="submit" value="Buscar">
+            </div>-->
+
+        </form>
+
+<hr></hr>
+
+<!--{% if libros %}
+    <ul>
+        {% for libro in libros %}
+            <li>
+                Titulo: {{libro.titulo}}
+                &#45;&#45; Autor: {{libro.autor}}
+                &#45;&#45; Año: {{libro.años_publicacion}}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}-->
+
+{% endblock %}
